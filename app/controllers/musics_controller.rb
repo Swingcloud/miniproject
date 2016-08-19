@@ -29,6 +29,13 @@ class MusicsController < ApplicationController
 		redirect_to music_path(@music) 
 	end
 
+	def destroy
+		@music = Music.find(params[:id])
+		@music.destroy
+		redirect_to musics_path
+	end
+
+
 	private 
 
 	def params_approve

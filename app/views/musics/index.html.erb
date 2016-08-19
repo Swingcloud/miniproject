@@ -1,4 +1,4 @@
-<h1>古典音樂資料表</h1>
+<h1 class="text-center">古典音樂資料表</h1>
 <br>
 <table class="table">
 <tr>
@@ -19,7 +19,7 @@
 	<td><%=music.year %></td>
 	<td><%=link_to "更多資訊" , music_path(music)%></td>
 	<td><%=link_to "編輯" , edit_music_path(music)%></td>
-	<td><%=link_to "刪除" , music_path(music)%></td>
+	<td><%=link_to "刪除" , music_path(music), :method => :delete%></td>
 </tr>
 <%end%>
 </table>
