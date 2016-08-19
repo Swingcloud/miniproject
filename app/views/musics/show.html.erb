@@ -1,0 +1,8 @@
+<h2 class="text-center">曲名：<%=  @music.name %></h2>
+<!-- rails將<br>自動帶入需鍵入simple_fromat -->
+<p class="text-center">作曲家：<%= @music.compositor %></p>
+<p class="text-center">演奏樂團/演奏家： <%= @music.symphony%></p>
+<p class="text-center">年份 ：<%= @music.year%></p>
+<p class="text-center">簡介：<div class="container"><%= simple_format @music.introduction %></div>div></p>
+
+<p class="text-center"><%= link_to '回到資料庫', musics_path  %></p>

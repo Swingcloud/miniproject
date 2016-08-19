@@ -12,7 +12,10 @@ class MusicsController < ApplicationController
 		@music = Music.new(params_approve)
 		@music.save
 		redirect_to musics_path
-		
+	end
+
+	def show
+		@music = Music.find(params[:id])
 	end
 
 	private 
