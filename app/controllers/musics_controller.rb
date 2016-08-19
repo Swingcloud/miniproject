@@ -32,7 +32,9 @@ class MusicsController < ApplicationController
 	def destroy
 		@music = Music.find(params[:id])
 		@music.destroy
-		redirect_to musics_path
+		respond_to do |d|
+			d.html {redirect_to :back}
+		end
 	end
 
 
