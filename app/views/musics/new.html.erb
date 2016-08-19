@@ -1,0 +1,30 @@
+<h1>新增樂曲資料</h1>
+<%= form_for @music, :url => musics_path do |f| %>
+<p>
+<%= f.label :name, "曲名" %>
+<%= f.text_field :name %>
+</p>
+
+<p>
+<%= f.label :compositor, "作曲家" %>
+<%= f.text_field :compositor %>
+</p>
+
+<p>
+<%= f.label :symphony, "演奏樂團/演奏家" %>
+<%= f.text_field :symphony %>
+</p>
+
+<p>
+<%= f.label :year, "年份" %>
+<%= f.date_field :year %>
+</p>
+
+<p>
+<%= f.label :introduction, "簡介" %>
+<%= f.text_area :introduction %>
+</p>
+
+<p><%= f.submit "送出資料" %></p>
+
+<%end%>

@@ -1,0 +1,27 @@
+<h1>古典音樂資料表</h1>
+<br>
+<table class="table">
+<tr>
+	<th>曲名</th>
+	<th>作曲家</th>
+	<th>演奏樂團/演奏家</th>
+	<th>年份</th>
+	<th>更多資訊</th>
+	<th>編輯</th>
+	<th>刪除</th>
+</tr>
+
+<% @musics.each do |music| %>
+<tr>
+	<td><%=music.name %></td>
+	<td><%=music.compositor %></td>
+	<td><%=music.symphony%></td>
+	<td><%=music.year %></td>
+	<td><%=link_to "更多資訊" , music_path(music)%></td>
+	<td><%=link_to "編輯" , music_path(music)%></td>
+	<td><%=link_to "刪除" , music_path(music)%></td>
+</tr>
+<%end%>
+</table>
+
+<p class="text-center"><%= link_to "新增資料" , new_music_path %></p>
