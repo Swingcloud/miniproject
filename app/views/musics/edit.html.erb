@@ -1,0 +1,7 @@
+<h1>編輯樂曲資料</h1>
+<%= form_for @music, :url => music_path(@music), :method => :patch do |f| %>
+
+<%= render :partial => "form", :locals => {:f => f} %>
+
+<p><%= f.submit "編輯完成" %></p>
+<%end%>
