@@ -11,7 +11,7 @@ class MusicsController < ApplicationController
 	def create
 		@music = Music.new(params_approve)
 		@music.save
-		redirect_to musics_path
+		redirect_to @music,:page => params[:page]
 	end
 
 	def show
@@ -32,9 +32,13 @@ class MusicsController < ApplicationController
 	def destroy
 		@music = Music.find(params[:id])
 		@music.destroy
-		respond_to do |d|
-			d.html {redirect_to :back}
-		end
+		@music = Music.page(params[:page])
+		# 壞掉待確認redirect_to musics_path(@music)
+		redirect_to :back
+		# 壞掉待確認redirect_to  Music.page(:page =>params[:page])
+		# respond_to do |d|
+		# 	d.html {redirect_to :back}
+		# end
 	end
 
 
