@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>ClassicMusic</title>
+    <title><%= @page_title || "ClassicMusic"%></title>
     <%= csrf_meta_tags %>
-
+		<p style="color: green"><%= flash[:notice] %></p>
+		<p style="color: red"><%= flash[:alert] %></p>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
