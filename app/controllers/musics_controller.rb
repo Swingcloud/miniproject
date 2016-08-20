@@ -4,6 +4,12 @@ class MusicsController < ApplicationController
 
 	def index
 		@musics= Music.page(params[:page]).per(10)
+		respond_to do |format|
+    	format.html # index.html.erb
+    	format.xml { render :xml => @musics.to_xml }
+    	format.json { render :json => @musics.to_json }
+    	format.atom { @feed_title = "My Music list" } # index.atom.builder
+  	end
 	end
 
 	def new	
