@@ -1,3 +1,12 @@
+<% if @music.errors.any? %>
+      <ul>
+      <% @music.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+<% end %>
+
+
 <p>
 <%= f.label :name, "曲名" %>
 <%= f.text_field :name %>

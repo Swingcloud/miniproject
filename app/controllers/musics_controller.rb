@@ -1,5 +1,7 @@
 class MusicsController < ApplicationController
 
+	before_action :set_music, :only => [:show, :edit, :update, :destroy ]
+
 	def index
 		@musics= Music.page(params[:page]).per(10)
 	end
@@ -10,31 +12,40 @@ class MusicsController < ApplicationController
 
 	def create
 		@music = Music.new(params_approve)
-		@music.save
+		if @music.save
 		redirect_to @music,:page => params[:page]
+		flash[:notice] = "新增成功"
+		else
+		render :action => :new 
+		end
 	end
 
 	def show
-		@music = Music.find(params[:id])
+
+		
+		@page_title = @music.name
 	end
 
 	def edit
-		@music = Music.find(params[:id])
+		
 	end
 
 	def update
-		@music = Music.find(params[:id])
-		@music.update( params_approve)
-		# flash[:notice] = "編輯成功"
-		redirect_to music_path(@music) 
+		if @music.update( params_approve)
+		flash[:notice] = "編輯成功"
+		redirect_to music_path
+		else
+			render :action => :edit #edit.html.erb
+		end
 	end
 
 	def destroy
-		@music = Music.find(params[:id])
+		
 		@music.destroy
 		@music = Music.page(params[:page])
-		# 壞掉待確認redirect_to musics_path(@music)
-		redirect_to :back
+		flash[:notice] = "刪除成功"
+		redirect_to musics_path
+		# redirect_to :back
 		# 壞掉待確認redirect_to  Music.page(:page =>params[:page])
 		# respond_to do |d|
 		# 	d.html {redirect_to :back}
@@ -47,4 +58,9 @@ class MusicsController < ApplicationController
 	def params_approve
 		params.require(:music).permit(:name, :compositor, :symphony, :year, :introduction)
 	end
+
+	def set_music
+		@music = Music.find(params[:id])	
+	end
+
 end
