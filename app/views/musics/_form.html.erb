@@ -23,6 +23,12 @@
 </div>
 
 <div class="form-group">
+	<%= f.label :on_shelf, "上架時間" %>
+	<%= f.datetime_select :on_shelf,:class => "form-control" %>
+</div>
+
+
+<div class="form-group">
 	<%= f.label :year, "年份" %>
 	<%= f.date_select :year,:class => "form-control" %>
 </div>
