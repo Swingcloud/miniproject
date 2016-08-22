@@ -19,7 +19,7 @@ class MusicsController < ApplicationController
 	def create
 		@music = Music.new(params_approve)
 		if @music.save
-		redirect_to @music,:page => params[:page]
+		redirect_to music_path(@music)
 		flash[:notice] = "新增成功"
 		else
 		render :action => :new 
@@ -27,8 +27,6 @@ class MusicsController < ApplicationController
 	end
 
 	def show
-
-		
 		@page_title = @music.name
 	end
 
@@ -48,9 +46,9 @@ class MusicsController < ApplicationController
 	def destroy
 		
 		@music.destroy
-		@music = Music.page(params[:page])
+		
 		flash[:notice] = "刪除成功"
-		redirect_to musics_path
+		redirect_to musics_path(:page => params[:page])
 		# redirect_to :back
 		# 壞掉待確認redirect_to  Music.page(:page =>params[:page])
 		# respond_to do |d|

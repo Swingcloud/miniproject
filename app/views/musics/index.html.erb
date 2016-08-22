@@ -17,9 +17,9 @@
 	<td><%=music.compositor %></td>
 	<td><%=music.symphony%></td>
 	<td><%=music.year %></td>
-	<td><%=link_to "更多資訊" , music_path(music)%></td>
+	<td><%=link_to "更多資訊" , music_path(music, :page =>params[:page])%></td>
 	<td><%=link_to "編輯" , edit_music_path(music)%></td>
-	<td><%=link_to "刪除" , music_path(music), :method => :delete%></td>
+	<td><%=link_to "刪除" , music_path(music, :page => params[:page]), :method => :delete%></td>
 </tr>
 <%end%>
 </table>

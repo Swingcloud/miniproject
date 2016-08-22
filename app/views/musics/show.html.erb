@@ -5,4 +5,4 @@
 <p class="text-center">年份 ：<%= @music.year%></p>
 <p class="text-center">簡介：<div class="container"><%= simple_format @music.introduction %></div></p>
 
-<p class="text-center"><%= link_to '回到資料庫', musics_path  %></p>
+<p class="text-center"><%= link_to '回到資料庫', musics_path(:page => params[:page])  %></p>
