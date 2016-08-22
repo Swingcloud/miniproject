@@ -7,28 +7,28 @@
 <% end %>
 
 
-<p>
-<%= f.label :name, "曲名" %>
-<%= f.text_field :name %>
-</p>
+<div class="form-group">
+	<%= f.label :name, "曲名" %>
+	<%= f.text_field :name ,:class => "form-control"%>
+</div>
 
-<p>
-<%= f.label :compositor, "作曲家" %>
-<%= f.text_field :compositor %>
-</p>
+<div class="form-group">
+	<%= f.label :compositor, "作曲家" %>
+	<%= f.text_field :compositor ,:class => "form-control"%>
+</div>
 
-<p>
-<%= f.label :symphony, "演奏樂團/演奏家" %>
-<%= f.text_field :symphony %>
-</p>
+<div class="form-group">
+	<%= f.label :symphony, "演奏樂團/演奏家" %>
+	<%= f.text_field :symphony,:class => "form-control" %>
+</div>
 
-<p>
-<%= f.label :year, "年份" %>
-<%= f.date_field :year %>
-</p>
+<div class="form-group">
+	<%= f.label :year, "年份" %>
+	<%= f.date_field :year,:class => "form-control" %>
+</div>
 
-<p>
-<%= f.label :introduction, "簡介" %>
-<%= f.text_area :introduction %>
-</p>
+<div class="form-group">
+	<%= f.label :introduction, "簡介" %>
+	<%= f.text_area :introduction,:class => "form-control" %>
+</div>
 
