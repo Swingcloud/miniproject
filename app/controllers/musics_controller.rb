@@ -3,6 +3,11 @@ class MusicsController < ApplicationController
 	before_action :set_music, :only => [:show, :edit, :update, :destroy ]
 
 	def index
+		if params[:id]
+			@music =Music.find(params[:id])
+		else
+			@music= Music.new
+		end
 		@musics= Music.page(params[:page]).per(10)
 		respond_to do |format|
     	format.html # index.html.erb

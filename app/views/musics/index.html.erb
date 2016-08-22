@@ -18,10 +18,18 @@
 	<td><%=music.symphony%></td>
 	<td><%=music.year %></td>
 	<td><%=link_to "更多資訊" , music_path(music, :page =>params[:page])%></td>
-	<td><%=link_to "編輯" , edit_music_path(music)%></td>
+	<td><%=link_to "編輯" , musics_path(:id => music)%></td>
 	<td><%=link_to "刪除" , music_path(music, :page => params[:page]), :method => :delete%></td>
 </tr>
 <%end%>
 </table>
-<div class="container"><%= paginate @musics %></div>
+<%= paginate @musics %>
 <p class="text-center"><%= link_to "新增資料" , new_music_path %></p>
+
+<%= form_for @music do |f| %>
+	<%= render :partial => "form", :locals => {:f => f} %>
+
+	<%= f.submit "Save", :class => "btn btn-primary" %>
+	<%=link_to "Cancel", musics_path, :class => "btn btn-primary" %>
+
+<% end %>
