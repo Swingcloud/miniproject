@@ -16,7 +16,7 @@
 	<td><%=music.name %></td>
 	<td><%=music.compositor %></td>
 	<td><%=music.symphony%></td>
-	<td><%=music.year %></td>
+	<td><%=music.publish_year %></td>
 	<td><%=link_to "更多資訊" , music_path(music, :page =>params[:page]), :class => "btn btn-primary"%></td>
 	<td><%=link_to "編輯" , musics_path(:id => music, :page =>params[:page]),:class =>"btn btn-default"%></td>
 	<td><%=link_to "刪除" , music_path(music, :page => params[:page]), :method => :delete,:class => "btn btn-danger"%></td>

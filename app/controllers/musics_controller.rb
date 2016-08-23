@@ -9,6 +9,7 @@ class MusicsController < ApplicationController
 			@music= Music.new
 		end
 		@musics= Music.page(params[:page]).per(10)
+
 		respond_to do |format|
     	format.html # index.html.erb
     	format.xml { render :xml => @musics.to_xml }
@@ -65,7 +66,7 @@ class MusicsController < ApplicationController
 	private 
 
 	def params_approve
-		params.require(:music).permit(:name, :compositor, :symphony, :year, :introduction)
+		params.require(:music).permit(:name, :compositor, :symphony, :publish_year, :introduction,:on_shelf)
 	end
 
 	def set_music
